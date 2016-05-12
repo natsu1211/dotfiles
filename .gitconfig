@@ -1,0 +1,19 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = natsu1211
+	email = longyutao1211@gmail.com
+[core]
+	excludesfile = /Users/yutao.long/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[url "github:"]
+    InsteadOf = https://github.com/
+    InsteadOf = git@github.com:
