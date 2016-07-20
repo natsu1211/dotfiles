@@ -10,7 +10,7 @@ setopt share_history
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-plugins=(git ruby rails brew  z common-aliases)
+plugins=(git ruby rails brew  z common-aliases vi-mode)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
