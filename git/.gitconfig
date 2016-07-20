@@ -20,5 +20,3 @@
     InsteadOf = git@github.com:
 [push]
 	default = simple
-[merge]
-	ff = no
