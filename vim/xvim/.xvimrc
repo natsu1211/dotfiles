@@ -1,3 +1,4 @@
+# setting for xcode xvim plugin 
 imap <D-j> <ESC>
 vmap <D-j> <ESC>
 xmap <D-j> <ESC>
