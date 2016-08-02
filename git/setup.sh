@@ -1,6 +1,8 @@
 #!/bin/sh
 #author: natsu1211
 
+set -eu
+
 DIR=`cd $(dirname $0); pwd`
 for file in zshrc; do
     if [ -e $HOME/.$file ]; then
@@ -10,4 +12,3 @@ for file in zshrc; do
 
     ln -sf $DIR/$file $HOME/.$file
 done
-
