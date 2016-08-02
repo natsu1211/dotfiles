@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/yutao.long/.oh-my-zsh
+export ZSH=/Users/longyutao/.oh-my-zsh
 
 ZSH_THEME="gianu"
 HISTFILE=~/.zsh_history
@@ -14,6 +14,7 @@ plugins=(git ruby rails brew  z common-aliases)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/share/npm/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -49,7 +50,6 @@ eval "$(rbenv init -)"
 export GOPATH="$HOME/Documents/go"
 export GOROOT_BOOTSTRAP=$GOROOT
 export EDITOR=/Applications/TextEdit.app/Contents/MacOS/MacVim
-
 PATH="/Users/yutao.long/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/yutao.long/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/Users/yutao.long/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
