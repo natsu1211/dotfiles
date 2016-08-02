@@ -1,0 +1,3 @@
+[submodule "atom/atom-settings"]
+	path = atom/atom-settings
+	url = https://gist.github.com/c75b07894f099c5ffe2a8b9a7513373c.git
