@@ -7,6 +7,7 @@ has() {
 	type "$1" > /dev/null 2>&1
 }
 ATOM_HOME=$HOME/.atom
+ATOM_SETTINGS=atom-settings
 DIR=`cd $(dirname $0); pwd`
 slink() {
 	[ -e "$2" ] || ln -sf "$1" "$2"
@@ -23,13 +24,16 @@ elif [ "$(expr substr "$(uname -s)" 1 5)" = "Linux" ]; then
 fi
 cd $DIR
 #clone from gist
-git clone https://gist.github.com/c75b07894f099c5ffe2a8b9a7513373c.git atom-settings && cd atom-settings
-for file in init.coffee keymap.cson settings.json snippets.cson styles.less
-do
-    if [ -e $ATOM_HOME/$file ]; then
-        old=${file}_old
-        mv $ATOM_HOME/$file $ATOM_HOME/$old
-    fi
+if [ -d atom-settings ]; then
+	git submodule add https://gist.github.com/c75b07894f099c5ffe2a8b9a7513373c.git $ATOM_SETTINGS
+	cd atom-settings
+	for file in init.coffee keymap.cson settings.json snippets.cson styles.less
+	do
+		if [ -e $ATOM_HOME/$file ]; then
+			old=${file}_old
+			mv $ATOM_HOME/$file $ATOM_HOME/$old
+		fi
 
-    slink $DIR/$file $ATOM_HOME/$file
-done
+		slink $DIR/$ATOM_SETTINGS/$file $ATOM_HOME/$file
+	done
+fi
