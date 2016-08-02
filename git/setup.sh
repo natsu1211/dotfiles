@@ -4,7 +4,7 @@
 set -eu
 
 DIR=`cd $(dirname $0); pwd`
-for file in zshrc; do
+for file in gitconfig_global; do
     if [ -e $HOME/.$file ]; then
         old=$file${str}_old
         mv $HOME/.$file $HOME/.$old
