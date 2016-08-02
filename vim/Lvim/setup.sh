@@ -1,6 +1,9 @@
 #!/bin/sh
 #author: natsu1211
 set -eu
+slink() {
+	[ -e "$2" ] || ln -sf "$1" "$2"
+}
 DIR=`cd $(dirname $0); pwd`
 for file in vimrc ycm_extra_conf.py
 do
@@ -9,5 +12,5 @@ do
         mv $HOME/.$file $HOME/.$old
     fi
 
-    ln -sf $DIR/.$file $HOME/.$file
+    slink $DIR/.$file $HOME/.$file
 done
