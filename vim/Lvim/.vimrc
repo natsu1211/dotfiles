@@ -302,11 +302,17 @@ set wildmode=list:longest,full  " Command <Tab> completion, list matches, then l
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set autoindent                  " Indent at the same level of the previous line
-set shiftwidth=4                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
 set smarttab                    ""
-set tabstop=4                   " An indentation every four columns
-set softtabstop=4               " Let backspace delete indent
+if &filetype == 'ruby'
+    set shiftwidth=2                " Use indents of 2 spaces
+    set tabstop=2                   " An indentation every four columns
+    set softtabstop=2               " Let backspace delete indent
+else
+    set shiftwidth=2                " Use indents of 4 spaces
+    set tabstop=2                   " An indentation every four columns
+    set softtabstop=2               " Let backspace delete indent
+endif
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 "set splitright                  " Puts new vsplit windows to the right of the current
 "set splitbelow                  " Puts new split windows to the bottom of the current
@@ -411,6 +417,7 @@ if count(g:vim_bundle_groups, 'language') " Language Specificity
     "Plug 'suan/vim-instant-markdown'
     Plug 'kannokanno/previm'
     Plug 'fatih/vim-go' " Golang
+    Plug 'vim-ruby/vim-ruby' "ruby
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
     Plug 'tpope/vim-rails' " Rails
     Plug 'LaTeX-Box-Team/LaTeX-Box' " LaTex
