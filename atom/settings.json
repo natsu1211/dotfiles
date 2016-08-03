@@ -1,0 +1,28 @@
+{
+	"atom-beautify": {
+		"general": {
+			"_analyticsUserId": "38e11cbe-881f-4949-970e-91e486abbb80"
+		},
+		"ruby": {
+			"indent_size": 2
+		}
+	},
+	"editor": {
+		"fontSize": 13
+	},
+	"exception-reporting": {
+		"userId": "dfe51265-c2ff-88a1-f0d3-524019c1ed8f"
+	},
+	"minimap": {
+		"plugins": {
+			"find-and-replace": true,
+			"find-and-replaceDecorationsZIndex": 0,
+			"linter": true,
+			"linterDecorationsZIndex": 0
+		}
+	},
+	"sync-settings": {},
+	"welcome": {
+		"showOnStartup": false
+	}
+}
