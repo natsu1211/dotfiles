@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/longyutao/.oh-my-zsh
+export ZSH=/Users/yutao.long/.oh-my-zsh
 
 ZSH_THEME="gianu"
 HISTFILE=~/.zsh_history
@@ -50,11 +50,6 @@ eval "$(rbenv init -)"
 export GOPATH="$HOME/Documents/go"
 export GOROOT_BOOTSTRAP=$GOROOT
 export EDITOR=/Applications/TextEdit.app/Contents/MacOS/MacVim
-PATH="/Users/yutao.long/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/yutao.long/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/yutao.long/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/yutao.long/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/yutao.long/perl5"; export PERL_MM_OPT;
-if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
+
 
 [[ -s "/Users/yutao.long/.gvm/scripts/gvm" ]] && source "/Users/yutao.long/.gvm/scripts/gvm"
