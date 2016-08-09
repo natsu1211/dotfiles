@@ -18,6 +18,7 @@ if ! has zsh; then
 		sudo apt-get install zsh
 	fi
 fi
+chsh -s /bin/zsh
 #install oh-my-zsh
 if has zsh; then
 	if [ ! -d $HOME/.oh-my-zsh ] ; then
