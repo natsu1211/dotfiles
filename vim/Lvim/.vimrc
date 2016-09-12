@@ -85,7 +85,7 @@ set foldlevelstart=10 "donot fold anything
 "set spell "spell checking on
 set hidden                          " Allow buffer switching without saving
 set iskeyword+=_,$,@,%,#,-
-
+set write
 " Set directories
 function! InitializeDirectories()
     let parent=$HOME
@@ -404,10 +404,6 @@ endif
 if count(g:vim_bundle_groups, 'git') " Git
     Plug 'tpope/vim-fugitive' " Git wrapper
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    "Plug 'gregsexton/gitv' " Gitk clone
-    if has('signs')
-        Plug 'airblade/vim-gitgutter' " Git diff sign
-    endif
 endif
 
 if count(g:vim_bundle_groups, 'language') " Language Specificity
