@@ -44,12 +44,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v='mvim'
-export PATH="$HOME/.rbenv/bin:$PATH"
+alias a='atom'
+export PATH="$HOME/.rbenv/bin:$HOME/Downloads/xbuild-maste:$PATH"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 eval "$(rbenv init -)"
 export GOPATH="$HOME/Documents/go"
 export GOROOT_BOOTSTRAP=$GOROOT
-export EDITOR=/Applications/TextEdit.app/Contents/MacOS/MacVim
+export XBUILD="$HOME/Downloads/xbuild-master"
+export EDITOR="/Applications/MacVim.app/Contents/MacOS/MacVim"
+# export EDITOR="/usr/bin/vi -m"
 
 
 [[ -s "/Users/yutao.long/.gvm/scripts/gvm" ]] && source "/Users/yutao.long/.gvm/scripts/gvm"
