@@ -6,11 +6,11 @@ slink() {
 	[ -e "$2" ] || ln -sf "$1" "$2"
 }
 DIR=`cd $(dirname $0); pwd`
-for file in gitconfig_global; do
+for file in gitignore_global gitconfig; do
     if [ -e $HOME/.$file ]; then
         old=${file}_old
         mv $HOME/.$file $HOME/.$old
     fi
 
-    slink $DIR/$file $HOME/.$file
+    slink $DIR/.$file $HOME/.$file
 done
