@@ -51,7 +51,8 @@ eval "$(rbenv init -)"
 export GOPATH="$HOME/Documents/go"
 export GOROOT_BOOTSTRAP=$GOROOT
 export XBUILD="$HOME/Downloads/xbuild-master"
-export EDITOR="/Applications/MacVim.app/Contents/MacOS/MacVim"
+# export EDITOR="/Applications/MacVim.app/Contents/MacOS/MacVim"
+export EDITOR='mvim -f'
 # export EDITOR="/usr/bin/vi -m"
 
 
