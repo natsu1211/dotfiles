@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/yutao.long/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="gianu"
 HISTFILE=~/.zsh_history
@@ -18,31 +18,6 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v='mvim'
 alias a='atom'
 export PATH="$HOME/.rbenv/bin:$HOME/Downloads/xbuild-maste:$PATH"
@@ -53,7 +28,5 @@ export GOROOT_BOOTSTRAP=$GOROOT
 export XBUILD="$HOME/Downloads/xbuild-master"
 # export EDITOR="/Applications/MacVim.app/Contents/MacOS/MacVim"
 export EDITOR='mvim -f'
-# export EDITOR="/usr/bin/vi -m"
 
-
-[[ -s "/Users/yutao.long/.gvm/scripts/gvm" ]] && source "/Users/yutao.long/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
