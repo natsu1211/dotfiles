@@ -309,9 +309,9 @@ if &filetype == 'ruby'
     set tabstop=2                   " An indentation every four columns
     set softtabstop=2               " Let backspace delete indent
 else
-    set shiftwidth=2                " Use indents of 4 spaces
-    set tabstop=2                   " An indentation every four columns
-    set softtabstop=2               " Let backspace delete indent
+    set shiftwidth=4                " Use indents of 4 spaces
+    set tabstop=4                   " An indentation every four columns
+    set softtabstop=4               " Let backspace delete indent
 endif
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 "set splitright                  " Puts new vsplit windows to the right of the current
