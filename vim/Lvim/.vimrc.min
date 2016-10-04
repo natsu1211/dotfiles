@@ -1,0 +1,66 @@
+"minimal vimrc
+filetype plugin indent on " Enable filetype
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+
+let mapleader=',' " Change the mapleader
+let maplocalleader='\' " Change the maplocalleader
+
+nnoremap <Leader>rc :edit $MYVIMRC<CR>
+nnoremap <Leader>src :source $MYVIMRC<CR>
+
+set autoread " Set autoread when a file is changed outside
+set ttyfast
+set lazyredraw
+set history=100 " Increase the lines of history
+set modeline " Turn on modeline
+set encoding=utf-8 " Set utf-8 encoding
+set completeopt+=longest " Optimize auto complete
+set completeopt-=preview " Optimize auto complete
+set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+set nobackup " Set backup
+set undofile " Set undo
+set noswapfile
+set foldlevelstart=10 "donot fold anything
+set hidden                          " Allow buffer switching without saving
+set iskeyword+=_,$,@,%,#,-
+set write
+set noerrorbells
+set novisualbell
+
+syntax on
+"autocmd InsertLeave * set cursorline
+set shortmess=atI " Avoids hit enter
+set formatoptions+=rnlmM " Optimize format options
+set nowrap " Set nowrap
+set backspace=indent,eol,start " Make backspaces delete sensibly
+"set scrolljump=5 " Lines to scroll when cursor leaves screen
+set scrolloff=3 " Minimum lines to keep above and below cursor
+set sidescroll=1 " Minimal number of columns to scroll horizontally
+set sidescrolloff=10 " Minimal number of screen columns to keep away from cursor
+
+"set matchtime=2 " Decrease the time to blink
+set tabpagemax=15               " Only show 15 tabs
+set showmode                    " Display the current mode
+
+set cursorline                  " Highlight current line
+"set cursorcolumn                " Highlight current column
+set backspace=indent,eol,start  " Backspace for dummies
+set linespace=0                 " No extra spaces between rows
+set number                      " Line numbers on
+set showmatch                   " Show matching brackets/parenthesis
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+"set foldenable                  " Auto fold code
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set autoindent                  " Indent at the same level of the previous line
+set expandtab                   " Tabs are spaces, not tabs
+set smarttab                    ""
+set shiftwidth=4                " Use indents of 4 spaces
+set tabstop=4                   " An indentation every four columns
+set softtabstop=4               " Let backspace delete indent
+set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
