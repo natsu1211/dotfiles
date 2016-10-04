@@ -6,6 +6,9 @@ has() {
 	type "$1" > /dev/null 2>&1
 }
 
+slink() {
+    [ -e "$2" ] || ln -sf "$1" "$2"
+}
 #install tmux
 if ! has tmux; then
 	if [ "$(uname)" = "Darwin" ]; then
@@ -14,3 +17,17 @@ if ! has tmux; then
     sudo apt-get install tmux
 	fi
 fi
+
+#link
+set -eu
+DIR=`cd $(dirname $0); pwd`
+for file in tmux.conf; do
+    if [ -e $HOME/.$file ]; then
+        old=${file}_old
+        mv $HOME/.$file $HOME/.$old
+    fi
+
+    slink $DIR/.$file $HOME/.$file
+done
+
+
