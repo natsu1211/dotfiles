@@ -1,5 +1,5 @@
 #alias
-alias -='cd -'
+alias ..='cd ..'
 alias ...=../..
 alias ....=../../..
 alias .....=../../../..
