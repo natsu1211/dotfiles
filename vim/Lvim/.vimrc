@@ -9,7 +9,7 @@ let g:vim_fancy_font=1 " Enable using fancy font
 " vim ui setting
 let g:vim_show_number=1 " Enable showing number
 " vim autocomplete setting (YCM or NEO)
-let g:vim_autocomplete='YCM'
+let g:vim_autocomplete='NEO'
 " vim plugin setting
 let g:vim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
             \'complete', 'compile', 'git', 'language']
@@ -22,16 +22,6 @@ endif
 "------------------------------------------------
 " General
 "------------------------------------------------
-"platform compatible
-silent function! OSX()
-    return has('macunix')
-endfunction
-silent function! LINUX()
-    return has('unix') && !has('macunix') && !has('win32unix')
-endfunction
-silent function! WINDOWS()
-    return  (has('win32') || has('win64'))
-endfunction
 
 set nocompatible        " goodbye vi
 if !WINDOWS()
@@ -86,36 +76,6 @@ set foldlevelstart=10 "donot fold anything
 set hidden                          " Allow buffer switching without saving
 set iskeyword+=_,$,@,%,#,-
 set write
-" Set directories
-function! InitializeDirectories()
-    let parent=$HOME
-    let prefix='.vim'
-    let dir_list={
-                \ 'backup': 'backupdir',
-                \ 'view': 'viewdir',
-                \ 'swap': 'directory',
-                \ 'undo': 'undodir',
-                \ 'cache': '',
-                \ 'session': ''}
-    for [dirname, settingname] in items(dir_list)
-        let directory=parent.'/'.prefix.'/'.dirname.'/'
-        if !isdirectory(directory)
-            if exists('*mkdir')
-                let dir = substitute(directory, "/$", "", "")
-                call mkdir(dir, 'p')
-            else
-                echo 'Warning: Unable to create directory: '.directory
-            endif
-        endif
-        if settingname!=''
-            exec 'set '.settingname.'='.directory
-        endif
-    endfor
-endfunction
-call InitializeDirectories()
-
-"autocmd BufWinLeave *.* silent! mkview " Make Vim save view (state) (folds, cursor, etc)
-"autocmd BufWinEnter *.* silent! loadview " Make Vim load view (state) (folds, cursor, etc)
 
 " No sound on errors
 set noerrorbells
@@ -124,68 +84,12 @@ set t_vb=
 
 set background=dark         " Assume a dark background
 
-" Allow to trigger background
-function! ToggleBG()
-    let s:tbg = &background
-    " Inversion
-    if s:tbg == "dark"
-        set background=light
-    else
-        set background=dark
-    endif
-endfunction
-noremap <leader>bg :call ToggleBG()<CR>
-
-"auto insert file head according to file type
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetFileTitle()"
-function! SetFileTitle()
-	"shell file
-	if &filetype == 'sh'
-		call setline(1,"\#!/bin/zsh")
-		call append(line("."), "")
-    elseif &filetype == 'python'
-        call setline(1,"#!/usr/bin/env python")
-        call append(line("."),"# coding=utf-8")
-	    call append(line(".")+1, "")
-    elseif &filetype == 'ruby'
-        call setline(1,"#!/usr/bin/env ruby")
-        call append(line("."),"# encoding: utf-8")
-	    call append(line(".")+1, "")
-    elseif &filetype == 'cpp'
-		call append(line(".")+6, "#include<iostream>")
-		call append(line(".")+7, "using namespace std;")
-		call append(line(".")+8, "")
-    elseif &filetype == 'c'
-		call append(line(".")+6, "#include<stdio.h>")
-		call append(line(".")+7, "")
-    elseif &filetype == 'java'
-		call append(line(".")+6,"public class ".expand("%:r"))
-		call append(line(".")+7,"")
-	endif
-    if expand("%:e") == 'h'
-        call append(line(".")+6, "#ifndef _".toupper(expand("%:r"))."_H")
-        call append(line(".")+7, "#define _".toupper(expand("%:r"))."_H")
-        call append(line(".")+8, "#endif")
-    endif
-    "locate to end of file after creating new file
-endfunc
-autocmd BufNewFile * normal G
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "------------------------------------------------
 " UI
 "------------------------------------------------
 syntax on
-" if  filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    " let g:solarized_termcolors=256
-    " let g:solarized_termtrans=1
-    " let g:solarized_contrast="normal"
-    " let g:solarized_visibility="normal"
-    " color solarized             " Load a colorscheme
-" else
 color molokai
-"endif
 set title
 set titlestring=%t%(\ %m%)%(\ (%{expand('%:p:h')})%)%(\ %a%)
 
@@ -254,8 +158,6 @@ endif
 
 if g:vim_show_number
     set number " Show line numbers
-    " Toggle relativenumber
-    "nnoremap <Leader>n :set relativenumber!<CR>
 endif
 
 
@@ -304,15 +206,9 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 set autoindent                  " Indent at the same level of the previous line
 set expandtab                   " Tabs are spaces, not tabs
 set smarttab                    ""
-if &filetype == 'ruby'
-    set shiftwidth=2                " Use indents of 2 spaces
-    set tabstop=2                   " An indentation every four columns
-    set softtabstop=2               " Let backspace delete indent
-else
-    set shiftwidth=4                " Use indents of 4 spaces
-    set tabstop=4                   " An indentation every four columns
-    set softtabstop=4               " Let backspace delete indent
-endif
+set shiftwidth=4                " Use indents of 4 spaces
+set tabstop=4                   " An indentation every four columns
+set softtabstop=4               " Let backspace delete indent
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 "set splitright                  " Puts new vsplit windows to the right of the current
 "set splitbelow                  " Puts new split windows to the bottom of the current
@@ -332,10 +228,6 @@ if count(g:vim_bundle_groups, 'ui') " UI setting
     Plug 'vim-airline/vim-airline-themes'
     Plug 'bling/vim-bufferline' "Show Buffer line
     Plug 'powerline/fonts'
-    "Plug 'nathanaelkane/vim-indent-guides' " Indent guides
-    "Plug 'mhinz/vim-startify' " Start page
-    Plug 'junegunn/goyo.vim' " Distraction-free
-    Plug 'junegunn/limelight.vim' " Hyperfocus-writing
     Plug 'Yggdroot/indentLine'
     Plug 'vim-scripts/restore_view.vim' "restore cursor position and fold
 endif
@@ -343,32 +235,25 @@ endif
 if count(g:vim_bundle_groups, 'enhance') " Vim enhancement
     Plug 'Raimondi/delimitMate' " Closing of quotes
     Plug 'scrooloose/nerdcommenter' " NERD commenter
-    Plug 'tpope/vim-abolish' " Substitute, fin d
-    Plug 'tpope/vim-speeddating' " Speed dating
+    Plug 'tpope/vim-abolish' " Substitute, find
     Plug 'tpope/vim-repeat' " Repeat
     Plug 'kristijanhusak/vim-multiple-cursors' " Multiple cursors
     Plug 'mbbill/undotree' " Undo tree
     Plug 'tpope/vim-surround' " Substitute a pair of quotes
     Plug 'godlygeek/tabular' " Alignment
-    Plug 'ludovicchabant/vim-gutentags' " Manage tag files
-    Plug 'AndrewRadev/splitjoin.vim' " Splitjoin
-    Plug 'sickill/vim-pasta' " Better paste
     Plug 'Keithbsmiley/investigate.vim' " Helper
     Plug 'wellle/targets.vim' " Text objects
     Plug 'chrisbra/vim-diff-enhanced' " Create better diffs
     Plug 'kana/vim-submode'
     Plug 'kshenoy/vim-signature' "Show marks
-    Plug 'vim-scripts/bufkill.vim' "Show marks
+    Plug 'vim-scripts/bufkill.vim'
     Plug 'tpope/vim-endwise' "auto close for ruby and some other languages
     Plug 'mileszs/ack.vim' "Ack search engine
 
 endif
 
 if count(g:vim_bundle_groups, 'move') " Moving
-    "Plug 'tpope/vim-unimpaired' " Pairs of mappings
     Plug 'Lokaltog/vim-easymotion' " Easy motion
-    "Plug 'unblevable/quick-scope' " Quick scope
-    "Plug 'bkad/CamelCaseMotion' " Camel case motion
     Plug 'majutsushi/tagbar' " Tag bar
     Plug 'edsono/vim-matchit' " Match it
     Plug 'Shougo/unite.vim' " Search engine
@@ -379,7 +264,6 @@ endif
 if count(g:vim_bundle_groups, 'navigate') " Navigation
     Plug 'scrooloose/nerdtree' " NERD tree
     Plug 'jistr/vim-nerdtree-tabs' " NERD tree tabs
-    Plug 'mhinz/vim-tmuxify' " Tmux panes
 endif
 
 if count(g:vim_bundle_groups, 'complete') " Completion
@@ -402,6 +286,7 @@ if count(g:vim_bundle_groups, 'compile') " Compiling
 endif
 
 if count(g:vim_bundle_groups, 'git') " Git
+    Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive' " Git wrapper
     Plug 'Xuyuanp/nerdtree-git-plugin'
 endif
@@ -546,14 +431,6 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 1d_
 "--------------------------------------------------
 " Setting for UI plugins
 if count(g:vim_bundle_groups, 'ui')
-    " -> Goyo & Limelight
-    function! GoyoBefore()
-        Limelight
-    endfunction
-    function! GoyoAfter()
-        Limelight!
-    endfunction
-    let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
     " ->IndentLine
     let g:indentLine_char = '┊'
     let g:airline_theme= 'molokai'
@@ -573,7 +450,7 @@ if count(g:vim_bundle_groups, 'enhance')
 
     " -> NERD Commenter
     let NERDCommentWholeLinesInVMode=2
-    let NERDSpaceDelims=1
+    " let NERDSpaceDelims=1
     let NERDRemoveExtraSpaces=1
 
     function! IsWhiteLine()
