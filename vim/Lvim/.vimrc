@@ -707,6 +707,8 @@ if count(g:vim_bundle_groups, 'compile')
     let g:syntastic_aggregate_errors=1
     let g:syntastic_auto_jump=1
     let g:syntastic_auto_loc_list=1
+    let g:syntastic_cpp_compiler = 'clang++'
+    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
     if g:vim_fancy_font
         let g:syntastic_error_symbol = '✗'
         let g:syntastic_style_error_symbol = '✠'
