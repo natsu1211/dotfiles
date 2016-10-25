@@ -9,7 +9,7 @@ let g:vim_fancy_font=1 " Enable using fancy font
 " vim ui setting
 let g:vim_show_number=1 " Enable showing number
 " vim autocomplete setting (YCM or NEO)
-let g:vim_autocomplete='NEO'
+let g:vim_autocomplete='YCM'
 " vim plugin setting
 let g:vim_bundle_groups=['ui', 'enhance', 'move', 'navigate',
             \'complete', 'compile', 'git', 'language']
@@ -72,7 +72,7 @@ set foldlevelstart=10 "donot fold anything
 set hidden                          " Allow buffer switching without saving
 set iskeyword+=_,$,@,%,#,-
 set write
-
+:
 " No sound on errors
 set noerrorbells
 set novisualbell
@@ -121,7 +121,6 @@ function! MyTabLine()
         if file==''
             let file='[No Name]'
         endif
-        let s.=m
         let s.=i.':'
         let s.=file
         let s.='['.winnr.']'
@@ -278,7 +277,7 @@ endif
 
 if count(g:vim_bundle_groups, 'compile') " Compiling
     Plug 'scrooloose/syntastic' " Syntax checking
-    Plug 'xuhdev/SingleCompile' " Single compile
+    Plug 'thinca/vim-quickrun' "quick compile
 endif
 
 if count(g:vim_bundle_groups, 'git') " Git
@@ -716,9 +715,15 @@ if count(g:vim_bundle_groups, 'compile')
         let g:syntastic_style_warning_symbol = '≈'
     endif
 
-    " -> Singlecompile
-    nnoremap <F5> :SingleCompileRun<CR>
-    let g:SingleCompile_showquickfixiferror=1
+    " -> quickrun
+    nnoremap <silent> <F5> :QuickRun -mode n<CR>
+    vnoremap <silent> <F5> :QuickRun -mode v<CR>
+    let g:quickrun_config = {}
+    let g:quickrun_config['cpp/clang++11'] = {
+                \ 'cmdopt': '--std=c++11 --stdlib=libc++',
+                \ 'type': 'cpp/clang++'
+                \ }
+    let g:quickrun_config['cpp'] = {'type': 'cpp/clang++11'}
 endif
 
 " Setting for git plugins
