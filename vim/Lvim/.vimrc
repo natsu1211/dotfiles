@@ -244,7 +244,7 @@ if count(g:vim_bundle_groups, 'enhance') " Vim enhancement
     Plug 'vim-scripts/bufkill.vim'
     Plug 'tpope/vim-endwise' "auto close for ruby and some other languages
     Plug 'mileszs/ack.vim' "Ack search engine
-
+    Plug 'sickill/vim-pasta' "better paste
 endif
 
 if count(g:vim_bundle_groups, 'move') " Moving
@@ -290,7 +290,6 @@ if count(g:vim_bundle_groups, 'language') " Language Specificity
     "Plug 'matthias-guenther/hammer.vim' " Markup
     Plug 'plasticboy/vim-markdown'
     Plug 'tyru/open-browser.vim'
-    "Plug 'suan/vim-instant-markdown'
     Plug 'kannokanno/previm'
     Plug 'fatih/vim-go' " Golang
     Plug 'vim-ruby/vim-ruby' "ruby
@@ -298,6 +297,9 @@ if count(g:vim_bundle_groups, 'language') " Language Specificity
     Plug 'tpope/vim-rails' " Rails
     Plug 'LaTeX-Box-Team/LaTeX-Box' " LaTex
     Plug 'sheerun/vim-polyglot' " Language Support
+    "haskell
+    Plug 'eagletmt/ghcmod-vim'
+    Plug 'ujihisa/unite-haskellimport'
 endif
 
 
@@ -437,7 +439,13 @@ if count(g:vim_bundle_groups, 'enhance')
     " -> Markdown
     nnoremap <Leader>md :PrevimOpen<CR>
     xnoremap <Leader>md :PrevimOpen<CR>
-
+    " -> text-obj
+    augroup textobj_sentence
+        autocmd!
+        autocmd FileType markdown call textobj#sentence#init()
+        autocmd FileType textile call textobj#sentence#init()
+        autocmd FileType vim call textobj#sentence#init()
+    augroup END
     " -> delimitMate
     let delimitMate_expand_cr=1
     let delimitMate_expand_space=1
@@ -745,5 +753,8 @@ if count(g:vim_bundle_groups, 'git')
     endif
 endif
 
-
-
+if count(g:vim_bundle_groups, 'language')
+    "ghc-mod
+    nnoremap <silent> \t :GhcModType<CR>
+    nnoremap <silent> \c :GhcModTypeClear<CR>
+endif
