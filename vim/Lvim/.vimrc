@@ -714,8 +714,18 @@ if count(g:vim_bundle_groups, 'compile')
     let g:syntastic_aggregate_errors=1
     let g:syntastic_auto_jump=1
     let g:syntastic_auto_loc_list=1
-    let g:syntastic_cpp_compiler = 'clang++'
-    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+    if exists('g:loaded_syntastic_cpp11_gcc_checker')
+        finish
+    endif
+    let g:loaded_syntastic_cpp11_gcc_checker = 1
+
+    if !exists('g:syntastic_cpp11_compiler')
+        let g:syntastic_cpp11_compiler = executable('g++') ? 'g++' : 'clang++'
+    endif
+
+    if !exists('g:syntastic_cpp11_compiler_options')
+        let g:syntastic_cpp11_compiler_options = '-std=c++11'
+    endif
     if g:vim_fancy_font
         let g:syntastic_error_symbol = '✗'
         let g:syntastic_style_error_symbol = '✠'
