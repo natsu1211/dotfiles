@@ -1,0 +1,78 @@
+" quick esc
+imap <C-j> <ESC>
+vmap <C-j> <ESC>
+xmap <C-j> <ESC>
+" window move
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Better (un)indentation of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
+" Clear search highlighting
+noremap ,/ :nohls<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Xcode Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle a breakpoint at the current line
+nmap ,b :xccmd toggleBreakpointAtCurrentLine<CR>
+
+" Toggle comments for the selection
+nnoremap ,cc :xccmd commentAndUncommentCurrentLines<CR>
+vnoremap ,c  :xccmd commentAndUncommentCurrentLines<CR>
+"
+" Show
+"nmap ,g :xcmenucmd History...<CR>
+nmap ,F :xccmd showInFinder<CR>
+"nmap ,D :xccmd showDeveloperDocumentation<CR>
+"nmap ,d :xcmenucmd Quick Help for Selected Item<CR>
+
+" Toggle Toolbars
+nmap ,h :xccmd toggleNavigatorsVisibility<CR>
+nmap ,j :xccmd toggleDebuggerVisibility<CR>
+nmap ,l :xccmd toggleUtilitiesVisibility<CR>
+
+" Tabs
+nnoremap ,,t :xccmd newTab<cr>
+nnoremap ,tp :xccmd selectPreviousTab<cr>
+nnoremap ,tn :xccmd selectNextTab<cr>
+map ,,w :tabclose<CR>
+
+" Search the workspace for string cursor points to
+map ,s viw:xccmd findSelectedTextInWorkspace<CR>
+
+map <C-i> :xccmd goForwardInHistoryByCommand<CR>
+map <C-o> :xccmd goBackInHistoryByCommand<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copy/Paste
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Better copy and paste
+set pastetoggle=<F2>
+
+" Paste mode - insert typed text literally
+set paste
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Searching
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight all matches
+set hlsearch
+
+" Incremental searching
+set incsearch
+
+" Ignore case while searching
+set ignorecase
+
+" Intelligently override ignorecase
+set smartcase
+
+" Wrap searches
+set wrapscan
+set number
