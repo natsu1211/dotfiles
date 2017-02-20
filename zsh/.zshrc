@@ -15,6 +15,7 @@ plugins=(git ruby rails brew  z common-aliases hub)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
