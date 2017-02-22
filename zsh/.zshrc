@@ -31,3 +31,9 @@ export XBUILD="$HOME/Downloads/xbuild-master"
 export EDITOR='mvim -f'
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yutao.long/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yutao.long/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yutao.long/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/yutao.long/google-cloud-sdk/completion.zsh.inc'; fi
