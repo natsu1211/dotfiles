@@ -80,6 +80,10 @@ set t_vb=
 
 set background=dark         " Assume a dark background
 
+"cursor shape for vim on cui
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "------------------------------------------------
 " UI
@@ -415,9 +419,9 @@ nnoremap <Leader>q :%s/\s\+$//<CR>:let @/=''<CR>
 " Modify all the indents
 nnoremap \= gg=G
 " quick ESC
-imap <D-j> <ESC>
-vmap <D-j> <ESC>
-xmap <D-j> <ESC>
+inoremap <C-j> <ESC>
+vnoremap <C-j> <ESC>
+xnoremap <C-j> <ESC>
 " See the differences between the current buffer and the file it was loaded from
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 1d_
             \ | diffthis | wincmd p | diffthis
@@ -439,13 +443,6 @@ if count(g:vim_bundle_groups, 'enhance')
     " -> Markdown
     nnoremap <Leader>md :PrevimOpen<CR>
     xnoremap <Leader>md :PrevimOpen<CR>
-    " -> text-obj
-    augroup textobj_sentence
-        autocmd!
-        autocmd FileType markdown call textobj#sentence#init()
-        autocmd FileType textile call textobj#sentence#init()
-        autocmd FileType vim call textobj#sentence#init()
-    augroup END
     " -> delimitMate
     let delimitMate_expand_cr=1
     let delimitMate_expand_space=1
