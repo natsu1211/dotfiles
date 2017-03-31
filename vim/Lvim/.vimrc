@@ -249,6 +249,7 @@ if count(g:vim_bundle_groups, 'enhance') " Vim enhancement
     Plug 'tpope/vim-endwise' "auto close for ruby and some other languages
     Plug 'mileszs/ack.vim' "Ack search engine
     Plug 'sickill/vim-pasta' "better paste
+    Plug 'rking/ag.vim' "ag
 endif
 
 if count(g:vim_bundle_groups, 'move') " Moving
@@ -419,9 +420,15 @@ nnoremap <Leader>q :%s/\s\+$//<CR>:let @/=''<CR>
 " Modify all the indents
 nnoremap \= gg=G
 " quick ESC
-inoremap <C-j> <ESC>
-vnoremap <C-j> <ESC>
-xnoremap <C-j> <ESC>
+if has('gui_running')
+    inoremap <D-j> <ESC>
+    vnoremap <D-j> <ESC>
+    xnoremap <D-j> <ESC>
+elseif has('cmdline_info')
+    inoremap <C-j> <ESC>
+    vnoremap <C-j> <ESC>
+    xnoremap <C-j> <ESC>
+end
 " See the differences between the current buffer and the file it was loaded from
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 1d_
             \ | diffthis | wincmd p | diffthis
@@ -676,6 +683,7 @@ if count(g:vim_bundle_groups, 'complete')
             " enable completion from tags
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_global_ycm_extra_conf = '~/Lvim'
+            let g:ycm_confirm_extra_conf = 0
             " remap Ultisnips for compatibility for YCM
             let g:UltiSnipsExpandTrigger = '<C-j>'
             let g:UltiSnipsJumpForwardTrigger = '<C-j>'
@@ -711,18 +719,10 @@ if count(g:vim_bundle_groups, 'compile')
     let g:syntastic_aggregate_errors=1
     let g:syntastic_auto_jump=1
     let g:syntastic_auto_loc_list=1
-    if exists('g:loaded_syntastic_cpp11_gcc_checker')
-        finish
-    endif
     let g:loaded_syntastic_cpp11_gcc_checker = 1
+    let g:syntastic_cpp_compiler = executable('g++') ? 'g++' : 'clang++'
+    let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 
-    if !exists('g:syntastic_cpp11_compiler')
-        let g:syntastic_cpp11_compiler = executable('g++') ? 'g++' : 'clang++'
-    endif
-
-    if !exists('g:syntastic_cpp11_compiler_options')
-        let g:syntastic_cpp11_compiler_options = '-std=c++11'
-    endif
     if g:vim_fancy_font
         let g:syntastic_error_symbol = '✗'
         let g:syntastic_style_error_symbol = '✠'
