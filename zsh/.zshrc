@@ -22,7 +22,9 @@ source $ZSH/oh-my-zsh.sh
 alias v='mvim'
 alias a='atom'
 export PATH="$HOME/.rbenv/bin:$HOME/Downloads/xbuild-maste:$PATH"
-export ANDROID_HOME=/usr/local/opt/android-sdk
+# export ANDROID_SDK="$HOME/Library/Android/sdk"
+# export ANDROID_NDK_ROOT="$HOME/Library/Android/sdk/ndk-bundle"
+# export ANDROID_HOME="$HOME/Library/Android/sdk"
 eval "$(rbenv init -)"
 export GOPATH="$HOME/Documents/go"
 export GOROOT_BOOTSTRAP=$GOROOT
