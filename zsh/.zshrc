@@ -16,15 +16,15 @@ plugins=(git ruby rails brew  z common-aliases hub)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$PATH:/node_modules/.bin"
 
 source $ZSH/oh-my-zsh.sh
 alias v='mvim'
 alias a='atom'
-export PATH="$HOME/.rbenv/bin:$HOME/Downloads/xbuild-maste:$PATH"
+export ANDROID_HOME="$HOME/Library/Android"
+export PATH="$ANDROID_HOME:$HOME/.rbenv/bin:$HOME/Downloads/xbuild-maste:$PATH"
 # export ANDROID_SDK="$HOME/Library/Android/sdk"
 # export ANDROID_NDK_ROOT="$HOME/Library/Android/sdk/ndk-bundle"
-# export ANDROID_HOME="$HOME/Library/Android/sdk"
 eval "$(rbenv init -)"
 export GOPATH="$HOME/Documents/go"
 export GOROOT_BOOTSTRAP=$GOROOT
@@ -39,3 +39,6 @@ if [ -f '/Users/yutao.long/google-cloud-sdk/path.zsh.inc' ]; then source '/Users
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yutao.long/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/yutao.long/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
