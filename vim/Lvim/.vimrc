@@ -232,24 +232,31 @@ if count(g:vim_bundle_groups, 'ui') " UI setting
 endif
 
 if count(g:vim_bundle_groups, 'enhance') " Vim enhancement
-    Plug 'Raimondi/delimitMate' " Closing of quotes
-    Plug 'scrooloose/nerdcommenter' " NERD commenter
-    Plug 'tpope/vim-abolish' " Substitute, find
-    Plug 'tpope/vim-repeat' " Repeat
-    Plug 'kristijanhusak/vim-multiple-cursors' " Multiple cursors
-    Plug 'mbbill/undotree' " Undo tree
-    Plug 'tpope/vim-surround' " Substitute a pair of quotes
-    Plug 'godlygeek/tabular' " Alignment
-    Plug 'Keithbsmiley/investigate.vim' " Helper
-    Plug 'wellle/targets.vim' " Text objects
-    Plug 'chrisbra/vim-diff-enhanced' " Create better diffs
+    Plug 'raimondi/delimitmate' " closing of quotes
+    Plug 'scrooloose/nerdcommenter' " nerd commenter
+    Plug 'tpope/vim-abolish' " substitute, find
+    Plug 'tpope/vim-repeat' " repeat
+    Plug 'kristijanhusak/vim-multiple-cursors' " multiple cursors
+    Plug 'mbbill/undotree' " undo tree
+    Plug 'tpope/vim-surround' " substitute a pair of quotes
+    Plug 'godlygeek/tabular' " alignment
+    Plug 'junegunn/vim-easy-align' " beautify
+    Plug 'keithbsmiley/investigate.vim' " helper
+    Plug 'wellle/targets.vim' " text objects
+    Plug 'chrisbra/vim-diff-enhanced' " create better diffs
     Plug 'kana/vim-submode'
-    Plug 'kshenoy/vim-signature' "Show marks
+    Plug 'kshenoy/vim-signature' "show marks
     Plug 'vim-scripts/bufkill.vim'
     Plug 'tpope/vim-endwise' "auto close for ruby and some other languages
-    Plug 'mileszs/ack.vim' "Ack search engine
+    Plug 'mileszs/ack.vim' "ack search engine
     Plug 'sickill/vim-pasta' "better paste
     Plug 'rking/ag.vim' "ag
+    Plug 'kana/vim-textobj-user' "textobj library
+    Plug 'kana/vim-textobj-line' "line textobj
+    Plug 'kana/vim-textobj-function' "function textobj
+    Plug 'kana/vim-textobj-indent' "same indent textobj
+    Plug 'glts/vim-textobj-comment' "comment textobj
+    Plug 'kana/vim-textobj-entire' "entrie buffer textobj
 endif
 
 if count(g:vim_bundle_groups, 'move') " Moving
@@ -420,15 +427,9 @@ nnoremap <Leader>q :%s/\s\+$//<CR>:let @/=''<CR>
 " Modify all the indents
 nnoremap \= gg=G
 " quick ESC
-if has('gui_running')
-    inoremap <D-j> <ESC>
-    vnoremap <D-j> <ESC>
-    xnoremap <D-j> <ESC>
-elseif has('cmdline_info')
-    inoremap <C-j> <ESC>
-    vnoremap <C-j> <ESC>
-    xnoremap <C-j> <ESC>
-end
+inoremap <C-j> <ESC>
+vnoremap <C-j> <ESC>
+xnoremap <C-j> <ESC>
 " See the differences between the current buffer and the file it was loaded from
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 1d_
             \ | diffthis | wincmd p | diffthis
@@ -450,6 +451,7 @@ if count(g:vim_bundle_groups, 'enhance')
     " -> Markdown
     nnoremap <Leader>md :PrevimOpen<CR>
     xnoremap <Leader>md :PrevimOpen<CR>
+    let g:vim_markdown_folding_disabled = 1
     " -> delimitMate
     let delimitMate_expand_cr=1
     let delimitMate_expand_space=1
@@ -488,8 +490,8 @@ if count(g:vim_bundle_groups, 'enhance')
 " [count]<leader>cm |NERDComMinimalComment|
 " Comments the given lines using only one set of multipart delimiters.
 
-" [count]<leader>ci |NERDComInvertComment|
-" Toggles the comment state of the selected line(s) individually.
+" [count]<leader>ci |nerdcominvertcomment|
+" toggles the comment state of the selected line(s) individually.
 
 " [count]<leader>cs |NERDComSexyComment|
 " Comments out the selected lines ``sexily''
