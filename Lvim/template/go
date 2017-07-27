@@ -1,0 +1,13 @@
+/* ------------------------------
+# author  : natsu1211
+# date    : <+DATE+>
+------------------------------- */
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    <+CURSOR+>
+}

@@ -1,0 +1,20 @@
+/* ------------------------------
+# author  : natsu1211
+# date    : <+DATE+>
+------------------------------- */
+
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace LL
+{
+    class Hoge
+    {
+        static void Main()
+        {
+            <+CURSOR+>
+        }
+    }
+}

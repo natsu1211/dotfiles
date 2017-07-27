@@ -1,0 +1,14 @@
+/* ------------------------------
+# author  : natsu1211
+# date    : <+DATE+>
+------------------------------- */
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+<+CURSOR+>
+
+int main(int argc, char* argv[]) {
+    return 0;
+}

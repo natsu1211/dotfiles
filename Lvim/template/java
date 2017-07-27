@@ -1,0 +1,11 @@
+/* ------------------------------
+# author  : natsu1211
+# date    : <+DATE+>
+------------------------------- */
+#import java.util.*
+
+public class Hoge {
+    public static void main(String[] args){
+        <+CURSOR+>
+    }
+}
