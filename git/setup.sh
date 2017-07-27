@@ -1,16 +1,6 @@
 #!/bin/sh
-#author: natsu1211
-
-set -eu
-slink() {
-	[ -e "$2" ] || ln -sf "$1" "$2"
+init_target git
+process_git(){
+	symlink git/.gitconfig .gitconfig
+	symlink git/.gitignore_global .gitignore_global
 }
-DIR=`cd $(dirname $0); pwd`
-for file in gitignore_global gitconfig; do
-    if [ -e $HOME/.$file ]; then
-        old=${file}_old
-        mv $HOME/.$file $HOME/.$old
-    fi
-
-    slink $DIR/.$file $HOME/.$file
-done
