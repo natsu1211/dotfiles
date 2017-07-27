@@ -7,22 +7,95 @@
 			"indent_size": 2
 		}
 	},
+	"atom-package-deps": {
+		"ignored": []
+	},
+	"autocomplete-python": {
+		"useKite": false
+	},
+	"autocomplete-ruby": {
+		"rsensePath": "/Users/yutao.long/.rbenv/shims/rsense"
+	},
+	"core": {
+		"disabledPackages": [
+			"linter-glsl",
+			"emmet",
+			"linter-tslint",
+			"linter-hlint",
+			"less-autocompile",
+			"autocomplete-haskell",
+			"autocomplete-java",
+			"ide-haskell",
+			"vim-mode-plus-ex-mode",
+			"symbols-view",
+			"kite",
+			"git-plus",
+			"haskell-ghc-mod",
+			"autocomplete-ruby",
+			"language-cpp14",
+			"linter-cpplint"
+		],
+		"packagesWithKeymapsDisabled": [],
+		"telemetryConsent": "no"
+	},
 	"editor": {
-		"fontSize": 13
+		"fontFamily": "Inconsolata-dz for Powerline",
+		"fontSize": 12,
+		"showInvisibles": true,
+		"tabLength": 4
 	},
 	"exception-reporting": {
 		"userId": "dfe51265-c2ff-88a1-f0d3-524019c1ed8f"
+	},
+	"kite": {
+		"showKiteTourOnStatup": false
+	},
+	"linter": {},
+	"linter-rubocop": {
+		"command": "/Users/yutao.long/.rbenv/shims/rubocop"
+	},
+	"linter-ui-default": {
+		"panelHeight": 69
 	},
 	"minimap": {
 		"plugins": {
 			"find-and-replace": true,
 			"find-and-replaceDecorationsZIndex": 0,
+			"highlight-selected": true,
+			"highlight-selectedDecorationsZIndex": 0,
 			"linter": true,
 			"linterDecorationsZIndex": 0
 		}
 	},
-	"sync-settings": {},
+	"platformio-ide-terminal": {
+		"style": {}
+	},
+	"sync-settings": {
+		"quietUpdateCheck": true
+	},
+	"tree-view": {
+		"hideVcsIgnoredFiles": true
+	},
+	"vim-mode-plus": {
+		"incrementalSearch": true,
+		"useSmartcaseForSearch": true
+	},
+	"vim-mode-plus-ex-mode": {
+		"notifiedUseExMode": true
+	},
 	"welcome": {
 		"showOnStartup": false
+	},
+	"you-complete-me": {
+		"enabledFiletypes": [
+			"c",
+			"cpp",
+			"objc",
+			"objcpp",
+			"rust"
+		],
+		"globalExtraConfig": "~/.ycm_extra_conf.py",
+		"rustSrcPath": "/usr/local/Cellar/rust/1.19.0",
+		"ycmdPath": "/Users/yutao.long/.vim/bundle/YouCompleteMe/third_party/ycmd"
 	}
 }
