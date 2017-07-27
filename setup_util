@@ -1,0 +1,116 @@
+#!/bin/sh
+#modified https://github.com/reanisz/dotfiles/blob/master/setup-tool
+declare -a setup_targets=()
+
+dotfiles_root=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+force_exec=0
+debug_mode=0
+print_cmd=0
+dry_run=0
+init_install=0
+
+home_root=$HOME
+
+source ./util.sh
+
+for setup_file in $( ls ./**/setup.sh ); do
+    source $setup_file
+done
+
+cmd_help(){
+    echo "usage: `basename $0` [-fdpni] <command> [<targets>]"
+    echo ""
+    echo "Commands"
+    echo "  setup  setup dotfiles."
+    echo "  clean  clean dotfiles."
+    echo ""
+    echo "Targets"
+    echo -n " "
+    for target_name in ${setup_targets[@]}; do
+        echo -n " $target_name"
+    done
+    echo ""
+    exit 1
+}
+
+while getopts fdpni OPT
+do
+    case $OPT in
+        f)
+            force_exec=1
+            ;;
+        d)
+            debug_mode=1
+            ;;
+        p)
+            print_cmd=1
+            ;;
+        n)
+            dry_run=1
+            print_cmd=1
+            ;;
+        i)
+            init_install=1
+            ;;
+        *)
+            cmd_help
+            exit 1
+            ;;
+    esac
+done
+
+shift $((OPTIND - 1))
+
+if [ $debug_mode = 1 ] ; then
+    home_root=$HOME/debug
+fi
+declare -a targets=()
+
+command=$1
+shift
+
+case $command in
+    setup)
+        ;;
+    clean)
+        ;;
+    *)
+    cmd_help
+        ;;
+esac
+
+while [ "$1" != "" ]
+do
+    target_name=$1
+    if [ "$init_install"=1 ]; then
+        setup_targets+=( pre )
+    fi
+    case $target_name in
+        all)
+            targets+=( ${setup_targets[@]} )
+            ;;
+        *)
+            targets+=( $target_name )
+            ;;
+    esac
+    shift
+done
+
+LF=$'\\\x0A'
+targets=( $(echo ${targets[@]} | sed 's/ /'"$LF"'/g' | sort | uniq ) )
+
+#Target validation
+for target_name in ${targets[@]}; do
+    if [[ !( " ${setup_targets[@]} " =~ \ $target_name\  ) ]] ; then
+        error "unexpected target : $target_name"
+        exit 1
+    fi
+done
+
+#Execute command
+for target_name in ${targets[@]}; do
+    echo_msg "Process $target_name"
+    push_indent
+    eval process_${target_name}
+    pop_indent
+done
