@@ -48,9 +48,13 @@ process_pre(){
         if ! has pyenv; then
             anyenv install pyenv
             $SHELL -l
-            RECOMMENDED_PY_VAR="3.6.2"
-            pyenv install $RECOMMENDED_PY_VAR
-            pyenv global $RECOMMENDED_PY_VAR
+            RECOMMENDED_PY3_VAR="3.6.2"
+            RECOMMENDED_PY2_VAR="2.7.13"
+            export PYTHON_CONFIGURE_OPTS="--enable-framework"
+            pyenv install $RECOMMENDED_PY3_VAR
+            pyenv install $RECOMMENDED_PY2_VAR
+            pyenv global $RECOMMENDED_PY2_VAR
+            pyenv global $RECOMMENDED_PY3_VAR
             pyenv rehash
         fi
         if ! has goenv; then
@@ -94,6 +98,8 @@ process_pre(){
         fi
     fi
     #install prerequist for YCM
+    # CMake
+    brew install --upgrade cmake
     # c# support
     brew install mono
     # js,ts support
