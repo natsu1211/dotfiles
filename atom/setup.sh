@@ -2,7 +2,7 @@
 init_target atom
 process_atom(){
 	if [ -d $HOME/.atom/ ]; then
-		for file in *.[!s][!h]*
+		for file in init.coffee keymap.cson snippets.cson styles.less
 		do
 			symlink atom/$file .atom/$file
 		done
