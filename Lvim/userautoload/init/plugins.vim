@@ -38,7 +38,6 @@ call plug#begin(expand($HOME . '/.vim/bundle/'))
 
     Plug 'Lokaltog/vim-easymotion'             " Easy motion
     Plug 'majutsushi/tagbar'                   " Tag view
-    Plug 'edsono/vim-matchit'                  " Enhanced %
     Plug 'Shougo/vimproc', {'do': 'make'}
 
     Plug 'scrooloose/nerdtree'                 " Nerd tree view
