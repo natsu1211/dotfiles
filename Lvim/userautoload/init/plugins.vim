@@ -36,34 +36,35 @@ call plug#begin(expand($HOME . '/.vim/bundle/'))
     Plug 'glts/vim-textobj-comment'            " Comment textobj
     Plug 'kana/vim-textobj-entire'             " Entrie buffer textobj
 
+    Plug 'ludovicchabant/vim-gutentags'        " Auto tags management
     Plug 'Lokaltog/vim-easymotion'             " Easy motion
-    Plug 'majutsushi/tagbar'                   " Tag view
-    Plug 'Shougo/vimproc', {'do': 'make'}
+    Plug 'Yggdroot/LeaderF'                    " fuzzy search
+    Plug 'skywind3000/vim-preview'             " tag preview
 
-    Plug 'scrooloose/nerdtree'                 " Nerd tree view
-    Plug 'jistr/vim-nerdtree-tabs'             " Sharing nerd tree window between tabs
+    Plug 'scrooloose/nerdtree',                " Nerd tree view
+    Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}             " Sharing nerd tree window between tabs
 
-    Plug 'Valloric/YouCompleteMe', {'do': './instAll.py --all'} " auto complete engine
+    Plug 'Valloric/YouCompleteMe', {'do': './install.py --all'} " auto complete engine
     Plug 'sirver/ultisnips'                    " Snippet engine
-    Plug 'honza/vim-snippets'                  " Snippets
-    Plug 'thinca/vim-template'                 " Template helpe r
+    Plug 'thinca/vim-template'                 " Template helper
 
-    Plug 'scrooloose/syntastic'                " Syntax checkjing
+    Plug 'w0rp/ale'                            " Async lint
     Plug 'thinca/vim-quickrun'                 " Quick compile
+    Plug 'skywind3000/asyncrun.vim'            " Async run
 
     Plug 'airblade/vim-gitgutter'              " Show git status in editor view
     Plug 'tpope/vim-fugitive'                  " Git wrapper
     Plug 'Xuyuanp/nerdtree-git-plugin'         " Show git status in nerd tree view
 
-    Plug 'plasticboy/vim-markdown'             " Markdown preview
+    Plug 'plasticboy/vim-markdown', {'on': 'Markdown'}             " Markdown preview
     Plug 'tyru/open-browser.vim'
     Plug 'kannokanno/previm'
-    Plug 'fatih/vim-go'                        " Golang
-    Plug 'vim-ruby/vim-ruby'                   " Ruby
+    Plug 'fatih/vim-go', {'on': 'Go'}          " Golang
+    Plug 'vim-ruby/vim-ruby', {'on': 'Ruby'}   " Ruby
     Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.Vim/plugged/gocode/vim/symlink.sh' }
-    Plug 'tpope/vim-rails'                     " Rails
-    Plug 'LaTeX-Box-Team/LaTeX-Box'            " LaTex
-    Plug 'eagletmt/ghcmod-vim'                 " Haskell
+    Plug 'tpope/vim-rails', {'on': 'Ruby'}                     " Rails
+    Plug 'LaTeX-Box-Team/LaTeX-Box', {'on': 'Latex'}             " LaTex
+    Plug 'eagletmt/ghcmod-vim', {'on': 'Haskell'}                 " Haskell
 
 call plug#end()
 

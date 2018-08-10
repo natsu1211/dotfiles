@@ -7,8 +7,8 @@ process_Lvim(){
 	if [ ! -d "$HOME/.vim" ]; then
 		directory $HOME/.vim
 	fi
-	symlink Lvim/userautoload/ .vim/userautoload
-	symlink Lvim/template .vim/template
-	symlink Lvim/colors .vim/colors
-	symlink Lvim/autoload .vim/autoload
+	symlink Lvim/userautoload .vim
+	symlink Lvim/template .vim
+	symlink Lvim/colors .vim
+	symlink Lvim/autoload .vim
 }

@@ -1,5 +1,5 @@
 " Fast edit the .vimrc file using ,rc
-nnoremap <Leader>rc :edit $MYVIMRC<CR>
+nnoremap <Leader>rc :edit "$HOME/.vim/userautoload/init/keymapping.vim"<CR>
 nnoremap <Leader>src :source $MYVIMRC<CR>
 " Keep search matches in the middle of the window
 nnoremap * *zzzv
