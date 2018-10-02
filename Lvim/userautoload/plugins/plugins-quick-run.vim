@@ -6,3 +6,8 @@ let g:quickrun_config['cpp/clang++1z'] = {
             \ 'type': 'cpp/clang++'
             \ }
 let g:quickrun_config['cpp'] = {'type': 'cpp/clang++1z'}
+let g:quickrun_config['_'] = {
+      \  'split' : '',
+      \  'runner' : 'vimproc',
+      \  'runner/vimproc/updatetime' : 60
+      \}
