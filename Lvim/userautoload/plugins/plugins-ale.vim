@@ -7,6 +7,35 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
 
+let g:ale_linters = {
+\   'c': ['gcc'],
+\   'cpp': ['g++'],
+\   'python': ['pylint'],
+\   'ruby': ['rubocop'],
+\   'go': ['gofmt'],
+\   'rust': ['cargo'],
+\   'haskell': ['cabal-ghc'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'bash': ['shell'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
+\   'python': ['autopep8'],
+\   'ruby': ['rubocop'],
+\   'go': ['gofmt'],
+\   'rust': ['rustfmt'],
+\   'haskell': ['hlint'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'bash': ['shfmt'],
+\}
+
+" let g:ale_fix_on_save = 1
+
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++17'
 let g:ale_c_cppcheck_options = ''
