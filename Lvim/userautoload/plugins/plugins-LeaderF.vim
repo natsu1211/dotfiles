@@ -1,7 +1,10 @@
 let g:Lf_ShortcutF = '<c-p>'
 noremap <Leader>lm :LeaderfMru<cr>
-noremap <Leader>lf :LeaderfFunction!<cr>
+noremap <Leader>lf :LeaderfFunctionAll!<cr>
+noremap <Leader>ll :LeaderfLineAll<cr>
 noremap <Leader>lt :LeaderfTag<cr>
+noremap <Leader>lh :LeaderfHelp<cr>
+noremap <Leader>lc :LeaderfHistoryCmd<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']

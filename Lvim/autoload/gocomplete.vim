@@ -1,0 +1,1 @@
+/Users/long/.vim/bundle/gocode/vim/autoload/gocomplete.vim

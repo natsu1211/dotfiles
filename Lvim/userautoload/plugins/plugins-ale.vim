@@ -1,4 +1,4 @@
-let g:ale_linters_explicit = 1
+let g:ale_linters_explicit = 0
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
@@ -8,16 +8,10 @@ let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
-\   'c': ['gcc'],
-\   'cpp': ['g++'],
 \   'python': ['pylint'],
 \   'ruby': ['rubocop'],
-\   'go': ['gofmt'],
-\   'rust': ['cargo'],
-\   'haskell': ['cabal-ghc'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
-\   'bash': ['shell'],
 \}
 
 let g:ale_fixers = {
@@ -31,10 +25,10 @@ let g:ale_fixers = {
 \   'haskell': ['hlint'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
-\   'bash': ['shfmt'],
+\   'sh': ['shfmt'],
 \}
 
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++17'
