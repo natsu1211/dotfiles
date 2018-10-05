@@ -12,9 +12,9 @@ if [ ! -f "$ANTIGEN" ]; then
 	URL="http://git.io/antigen"
 	TMPFILE="/tmp/antigen.zsh"
 	if [ -x "$(which curl)" ]; then
-		curl -L "$URL" -o "$TMPFILE" 
+		curl -L "$URL" -o "$TMPFILE"
 	elif [ -x "$(which wget)" ]; then
-		wget "$URL" -O "$TMPFILE" 
+		wget "$URL" -O "$TMPFILE"
 	else
 		echo "ERROR: please install curl or wget before installation !!"
 		exit
@@ -74,12 +74,16 @@ alias n='nvim'
 alias a='atom'
 alias m='mvim'
 alias v='code'
+export GOROOT=`go env GOROOT`
+export GOPATH="$HOME/Documents/GOPATH"
 export EDITOR='nvim -f'
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="/node_modules/.bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
+export PATH="$GOROOT:$GOPATH/bin:$PATH"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
 eval "$(anyenv init -)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
