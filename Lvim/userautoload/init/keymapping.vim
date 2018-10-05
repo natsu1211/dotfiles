@@ -1,6 +1,8 @@
 " Fast edit the .vimrc file using ,rc
 nnoremap <Leader>rc :edit "$HOME/.vim/userautoload/init/keymapping.vim"<CR>
 nnoremap <Leader>src :source $MYVIMRC<CR>
+" fold toggle
+nnoremap <space> za
 " Keep search matches in the middle of the window
 nnoremap * *zzzv
 nnoremap # #zzzv
