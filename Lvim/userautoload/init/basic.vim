@@ -26,6 +26,7 @@ set ignorecase " Case insensitive search
 set smartcase " Case sensitive when uc present
 set nohlsearch " Not highlight search terms
 set incsearch " Find as you type search
+set foldmethod=syntax
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 set tags=./.tags;,.tags
 function! Terminal_MetaMode(mode)
@@ -68,7 +69,7 @@ function! Terminal_MetaMode(mode)
         endfor
     endif
 endfunc
- 
+
 call Terminal_MetaMode(0)
 
 " remap leader
