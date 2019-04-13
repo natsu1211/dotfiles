@@ -63,7 +63,6 @@ call plug#begin(expand($HOME . '/.vim/bundle/'))
     Plug 'sirver/ultisnips'                 " Snippet engine
     Plug 'honza/vim-snippets'               " Snipptes
     Plug 'thinca/vim-template'              " Template helper
-    Plug 'tenfyzhong/CompleteParameter.vim' " parameter hint
 
     Plug 'w0rp/ale'                            " Async lint
     Plug 'thinca/vim-quickrun'                 " Quick compile
