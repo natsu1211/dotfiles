@@ -36,9 +36,9 @@ nnoremap <Leader>q :%s/\s\+$//<CR>:let @/=''<CR>
 nnoremap \= gg=G
 
 " Quick ESC
-imap <C-j> <ESC>
-nmap <C-j> <ESC>
-xmap <C-j> <ESC>
+inoremap <C-j> <ESC>
+nnoremap <C-j> <ESC>
+xnoremap <C-j> <ESC>
 
 " Next buffer
 nnoremap <Leader><Leader>N :<C-u>bn<CR>
